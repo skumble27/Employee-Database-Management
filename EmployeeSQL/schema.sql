@@ -1,68 +1,64 @@
-﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
--- Link to schema: https://app.quickdatabasediagrams.com/#/d/Y2Ft2S
--- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
+-- Creating the relevant Tables Required for Database Engineering --
 
+CREATE TABLE Departments(
+	dept_no VARCHAR,
+	dept_name VARCHAR,
+	PRIMARY KEY (dept_no)
+	
 
-CREATE TABLE "Departments" (
-    "dept_no" VARCHAR   NOT NULL,
-    "dept_name" VARCHAR   NOT NULL,
-    CONSTRAINT "pk_Departments" PRIMARY KEY (
-        "dept_no"
-     )
 );
 
-CREATE TABLE "Titles" (
-    "title_id" VARCHAR   NOT NULL,
-    "title" VARCHAR   NOT NULL,
-    CONSTRAINT "pk_Titles" PRIMARY KEY (
-        "title_id"
-     )
+SELECT * FROM Departments;
+
+CREATE TABLE Titles (
+	title_id VARCHAR,
+	title VARCHAR,
+	PRIMARY KEY (title_id)
+
 );
 
-CREATE TABLE "Employees" (
-    "emp_no" INTEGER   NOT NULL,
-    "emp_title" VARCHAR   NOT NULL,
-    "birth_date" DATE   NOT NULL,
-    "first_name" VARCHAR   NOT NULL,
-    "last_name" VARCHAR   NOT NULL,
-    -- Only single letter code for male or femaile
-    "sex" VARCHAR(1)   NOT NULL,
-    "hire_date" DATE   NOT NULL,
-    CONSTRAINT "pk_Employees" PRIMARY KEY (
-        "emp_no"
-     )
+SELECT * FROM Titles;
+
+CREATE TABLE Employees (
+	emp_no INTEGER NOT NULL,
+	emp_title_id VARCHAR NOT NULL,
+	birth_date VARCHAR NOT NULL,
+	first_name VARCHAR,
+	last_name VARCHAR,
+	sex VARCHAR(1),
+	hire_date VARCHAR NOT NULL,
+	PRIMARY KEY (emp_no)
 );
 
-CREATE TABLE "Department_Employees" (
-    "emp_no" INTEGER   NOT NULL,
-    "dept_no" VARCHAR   NOT NULL
+SELECT * FROM Employees;
+
+CREATE TABLE Department_Employees(
+	emp_no INTEGER NOT NULL,
+	dept_no VARCHAR NOT NULL,
+	FOREIGN KEY(emp_no) REFERENCES Employees(emp_no),
+	FOREIGN KEY(dept_no) REFERENCES Departments(dept_no)
+
 );
 
-CREATE TABLE "Department_Manager" (
-    "dept_no" VARCHAR   NOT NULL,
-    "emp_no" INTEGER   NOT NULL
+SELECT * FROM Department_Employees;
+
+CREATE TABLE Department_Manager (
+	dept_no VARCHAR NOT NULL,
+	emp_no INTEGER NOT NULL,
+	FOREIGN KEY(dept_no) REFERENCES Departments(dept_no),
+	FOREIGN KEY(emp_no) REFERENCES Employees(emp_no)
 );
 
-CREATE TABLE "Salaries" (
-    "emp_no" INTEGER   NOT NULL,
-    "salary" INTEGER   NOT NULL
+SELECT * FROM Department_Manager;
+
+CREATE TABLE Salaries(
+	emp_no INTEGER NOT NULL,
+	salary INTEGER NOT NULL,
+	FOREIGN KEY(emp_no) REFERENCES Employees(emp_no)
+	 	
 );
 
-ALTER TABLE "Employees" ADD CONSTRAINT "fk_Employees_emp_title" FOREIGN KEY("emp_title")
-REFERENCES "Titles" ("title_id");
+SELECT * FROM Salaries;
 
-ALTER TABLE "Department_Employees" ADD CONSTRAINT "fk_Department_Employees_emp_no" FOREIGN KEY("emp_no")
-REFERENCES "Employees" ("emp_no");
 
-ALTER TABLE "Department_Employees" ADD CONSTRAINT "fk_Department_Employees_dept_no" FOREIGN KEY("dept_no")
-REFERENCES "Departments" ("dept_no");
-
-ALTER TABLE "Department_Manager" ADD CONSTRAINT "fk_Department_Manager_dept_no" FOREIGN KEY("dept_no")
-REFERENCES "Departments" ("dept_no");
-
-ALTER TABLE "Department_Manager" ADD CONSTRAINT "fk_Department_Manager_emp_no" FOREIGN KEY("emp_no")
-REFERENCES "Employees" ("emp_no");
-
-ALTER TABLE "Salaries" ADD CONSTRAINT "fk_Salaries_emp_no" FOREIGN KEY("emp_no")
-REFERENCES "Employees" ("emp_no");
 

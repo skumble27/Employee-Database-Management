@@ -59,6 +59,3 @@ CREATE TABLE Salaries(
 );
 
 SELECT * FROM Salaries;
-
-
-

@@ -10,7 +10,7 @@ Employees.emp_no = Salaries.emp_no;
 -- 2. Employees who were hired in 1986
 -- First and Last Names
 SELECT first_name, last_name, hire_date
-FROM Employees WHERE hire_date LIKE '%%/%%/1986';
+FROM Employees WHERE hire_date LIKE '%1986';
 
 -- 3. Listing Managers of Each Department
 SELECT departments.dept_no, departments.dept_name, department_manager.emp_no,

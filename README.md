@@ -86,4 +86,4 @@ The Database was further queried using the SQLAlchemy module in Python in order 
 
 2. Average Salary by Title
 
-![Ave Salary By Title](https://raw.githubusercontent.com/skumble27/sql-challenge/main/EmployeeSQL/Images/average_salary_by_title.png)
+![Average Salary by Title](https://raw.githubusercontent.com/skumble27/sql-challenge/main/EmployeeSQL/Images/average_salary_by_title.png)

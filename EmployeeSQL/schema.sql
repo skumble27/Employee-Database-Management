@@ -53,7 +53,7 @@ SELECT * FROM Department_Manager;
 
 CREATE TABLE Salaries(
 	emp_no INTEGER NOT NULL,
-	salary INTEGER NOT NULL,
+	salary_$ INTEGER NOT NULL,
 	FOREIGN KEY(emp_no) REFERENCES Employees(emp_no)
 	 	
 );

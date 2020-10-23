@@ -87,3 +87,9 @@ The Database was further queried using the SQLAlchemy module in Python in order 
 2. Average Salary by Title
 
 ![Average Salary by Title](https://raw.githubusercontent.com/skumble27/sql-challenge/main/EmployeeSQL/Images/average_salary_by_title.png)
+
+
+
+At the request of the Senior Manager, the employee Identification was further queried in the database which culminated in the following details that have been provided below.
+
+![April Fool](https://raw.githubusercontent.com/skumble27/sql-challenge/main/EmployeeSQL/Images/April_fool.png)

@@ -72,3 +72,18 @@ In descending order, list the frequency count of employee last names, i.e., how 
 
 ![Eighth Query](https://raw.githubusercontent.com/skumble27/sql-challenge/main/EmployeeSQL/Images/Query%208%20-%20lastname_count.png)
 
+
+
+#### Further Data Analytics (Bonus)
+
+The Database was further queried using the SQLAlchemy module in Python in order to retrieve the datasets and convert into a Pandas Dataframe. Once consolidated, the Seaborn and Matplotlib modules were subsequently utilised to visualise the dataset to gain an insight into the most common Salary ranges and the average Salary by Title, which have been provided below:
+
+
+
+1. Salary Ranges for Employees
+
+![Salary Ranges](https://raw.githubusercontent.com/skumble27/sql-challenge/main/EmployeeSQL/Images/salary_range_count.png)
+
+2. Average Salary by Title
+
+![Ave Salary By Title](https://raw.githubusercontent.com/skumble27/sql-challenge/main/EmployeeSQL/Images/average_salary_by_title.png)

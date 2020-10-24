@@ -5,7 +5,7 @@
 SELECT Employees.emp_no, Employees.last_name, Employees.first_name, Employees.sex, Salaries.salary_$ 
 FROM Employees
 INNER JOIN salaries ON
-Employees.emp_no = Salaries.emp_no);
+Employees.emp_no = Salaries.emp_no;
 
 -- 2. Employees who were hired in 1986
 -- First and Last Names
